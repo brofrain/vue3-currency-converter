@@ -1,0 +1,85 @@
+@mixin base__cover($inset: 0, $round-radius: inherit) {
+  position: absolute;
+  inset: $inset;
+  border-radius: $round-radius;
+}
+
+@mixin base__button-height($scale: 1) {
+  height: calc(var(--base__button-size) * $scale);
+
+  --base__button-size: 36px;
+
+  @media (min-width: 1500px) {
+    --base__button-size: 40px;
+  }
+
+  @media (min-width: 1600px) {
+    --base__button-size: 45px;
+  }
+}
+
+@mixin base__button-square-size($scale: 1) {
+  @include base__button-height($scale);
+  width: calc(var(--base__button-size) * $scale);
+}
+
+$gradient-color-1: #fb0;
+$gradient-color-2: #f0a;
+$gradient-color-3: #36f;
+
+$gradient: linear-gradient(
+  125deg,
+  $gradient-color-1 5%,
+  $gradient-color-2 20%,
+  $gradient-color-3 35% 42%,
+  $gradient-color-2 50%,
+  $gradient-color-1 58% 60%,
+  $gradient-color-2 65% 70%,
+  $gradient-color-3 85%,
+  $gradient-color-2 95%,
+  $gradient-color-1 110%
+);
+
+@mixin base__gradient {
+  background-image: $gradient;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+@mixin base__gradient--fixed {
+  @include base__gradient;
+  background-size: 100vw 110vh;
+  background-attachment: fixed;
+}
+
+@mixin base__gradient--local {
+  @include base__gradient;
+  background-size: 100%;
+  background-attachment: local;
+}
+
+@mixin base__gradient-text {
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: #0000;
+}
+
+@mixin base__gradient-text--fixed {
+  @include base__gradient--fixed;
+  @include base__gradient-text;
+}
+
+@mixin base__gradient-text--local {
+  @include base__gradient--local;
+  @include base__gradient-text;
+}
+
+@mixin base__transition($args...) {
+  transition-property: $args;
+  transition-duration: $base__animation-duration;
+}
+
+@mixin base__transition--gradient($args...) {
+  transition-property: $args;
+  transition-duration: $base__animation-duration--gradient;
+}

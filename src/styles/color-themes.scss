@@ -1,0 +1,16 @@
+@use "sass:meta";
+
+@mixin _make-color-theme($primary, $secondary, $text, $container-cover) {
+  --base__color--primary: #{$primary};
+  --base__color--secondary: #{$secondary};
+  --base__color--text: #{$text};
+  --base__color--container-cover: #{$container-cover};
+}
+
+@mixin color-theme--dark {
+  @include _make-color-theme(#151515, #252525, #eee, #0007);
+}
+
+@mixin color-theme--light {
+  @include _make-color-theme(#eee, #ccc, #222, #0003);
+}

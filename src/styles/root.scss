@@ -1,0 +1,33 @@
+@import "./color-themes.scss";
+
+:root {
+  font-family: "Work Sans", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 17px;
+  line-height: 1.3;
+  font-weight: 500;
+
+  @media (min-width: 1500px) {
+    font-size: 18px;
+  }
+
+  @media (min-width: 1600px) {
+    font-size: 19px;
+  }
+
+  #app {
+    // dark color theme is default
+    @include color-theme--dark;
+
+    &.theme-- {
+      &dark {
+        @include color-theme--dark;
+      }
+
+      &light {
+        @include color-theme--light;
+      }
+    }
+  }
+}
