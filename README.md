@@ -1,4 +1,4 @@
-# 💎 Vue 3 Currency Converter
+# Vue 3 Currency Converter
 
 Simple currency converter powered by [☁️Fawaz Ahmed's Currency Rates API](https://github.com/fawazahmed0/currency-api).
 
